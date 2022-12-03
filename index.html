@@ -1,1 +1,12 @@
-halo world
+
+
+provider "aws" {
+    access_key = "AKIA4BAQT6WHSSNIQA6S"
+    secret_key = "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"
+    region = "ap-south-1"
+}
+
+resource "aws_s3_bucket" "terrafom" {
+  bucket = "terraform"
+  acl = "public-read"
+}
