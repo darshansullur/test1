@@ -1,12 +1,23 @@
-
-
-provider "aws" {
-    access_key = "AKIA4BAQT6WHSSNIQA6S"
-    secret_key = "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"
-    region = "ap-south-1"
-}
-
-resource "aws_s3_bucket" "terrafom" {
-  bucket = "terraform"
-  acl = "public-read"
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:Put*"
+      ],
+      "Resource": [
+        "arn:aws:s3:::codepipeline-output-bucket/*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::codepipeline-output-bucket"
+      ]
+    }
+  ]
 }
